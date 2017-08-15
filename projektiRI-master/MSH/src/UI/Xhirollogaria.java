@@ -50,6 +50,11 @@ public class Xhirollogaria extends javax.swing.JFrame {
         CmbEmriBankes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
 
         btnRuaj.setText("Ruaj");
+        btnRuaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRuajActionPerformed(evt);
+            }
+        });
 
         btnMbyll.setText("Mbyll");
         btnMbyll.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +129,10 @@ public class Xhirollogaria extends javax.swing.JFrame {
        if(!Character.isDigit(c))
            evt.consume();
     }//GEN-LAST:event_txtNumriXhiroLlogariseKeyPressed
+
+    private void btnRuajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRuajActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRuajActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,9 @@
 package UI;
 import BL.BLStoqet;
 import BO.Stoqet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author INFO PC
@@ -42,12 +45,11 @@ public class Stoku extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         btnShto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnFshijNeBazeID = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtFshijNeBazeID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        txtStokuFiilim = new javax.swing.JTextField();
+        cmbBrendi = new javax.swing.JComboBox<>();
 
         jTextField1.setText("jTextField1");
 
@@ -122,7 +124,12 @@ public class Stoku extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Fshij");
+        btnFshijNeBazeID.setText("Fshij");
+        btnFshijNeBazeID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFshijNeBazeIDActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Fshij ne baze te ID:");
 
@@ -135,8 +142,6 @@ public class Stoku extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("STOKU");
-
-        txtStokuFiilim.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -155,7 +160,7 @@ public class Stoku extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtFshijNeBazeID)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFshijNeBazeID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(79, 79, 79))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
@@ -163,11 +168,8 @@ public class Stoku extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtStokuFiilim, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel7))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtStokuFillestar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,17 +181,15 @@ public class Stoku extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtArtikujtMbetur, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbBrendi, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtStokuFiilim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addComponent(jLabel7)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtArtikujtMbetur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +198,7 @@ public class Stoku extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbBrendi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(txtArtikujtShitur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
@@ -212,7 +212,7 @@ public class Stoku extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnFshijNeBazeID, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
@@ -223,11 +223,11 @@ public class Stoku extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       // txtStoqetID.setText("");
-//       txtArtikujtMbetur.setText("");
-//       txtArtikujtShitur.setText("");
+      txtArtikujtMbetur.setText("");
+      txtArtikujtShitur.setText("");
 //      // txtBrendiID.setText("");
-//       txtStokuFillestar.setText("");
-//       txtFshijNeBazeID.setText("");
+      txtStokuFillestar.setText("");
+       txtFshijNeBazeID.setText("");
 //       
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -256,9 +256,32 @@ public class Stoku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFshijNeBazeIDKeyTyped
 
     private void btnShtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShtoActionPerformed
-      
-       
+Stoqet s=new Stoqet();
+s.setStokuFillestar(Integer.parseInt(txtStokuFillestar.getText()));
+s.setArtikujtShitur(Integer.parseInt(txtArtikujtShitur.getText()));
+s.setArtikujtMbetur(Integer.parseInt(txtArtikujtMbetur.getText()));
+s.setBrendi_brendiId(Integer.parseInt((String)cmbBrendi.getSelectedItem()));
+
+        try {
+            if (BL.BLStoqet.stoqetExist(s)) {
+                JOptionPane.showMessageDialog(this, "Stoku Ekziston!");
+            } else {
+                BL.BLStoqet.stoqetExist((s));
+                JOptionPane.showMessageDialog(this, "Stoku u shtua me sukses!");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Stoku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_btnShtoActionPerformed
+
+    private void btnFshijNeBazeIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFshijNeBazeIDActionPerformed
+        try {
+            DAL.DALStoqet.delete(Integer.parseInt(txtFshijNeBazeID.getText()));
+        } catch (Exception ex) {
+            Logger.getLogger(Stoku.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnFshijNeBazeIDActionPerformed
     
 
     /**
@@ -297,10 +320,10 @@ public class Stoku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnFshijNeBazeID;
     private javax.swing.JButton btnShto;
+    private javax.swing.JComboBox<String> cmbBrendi;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -315,7 +338,6 @@ public class Stoku extends javax.swing.JFrame {
     private javax.swing.JTextField txtArtikujtMbetur;
     private javax.swing.JTextField txtArtikujtShitur;
     private javax.swing.JTextField txtFshijNeBazeID;
-    private javax.swing.JTextField txtStokuFiilim;
     private javax.swing.JTextField txtStokuFillestar;
     // End of variables declaration//GEN-END:variables
 }
