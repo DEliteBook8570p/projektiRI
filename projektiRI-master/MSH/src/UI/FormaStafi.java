@@ -297,11 +297,11 @@ public class FormaStafi extends javax.swing.JFrame {
             f.setEmriPerdoruesit(txtEmriPerdoruesit.getText());
             f.setMbiemriPerdoruesit(txtMbiemriPerdoruesit.getText());
             f.setPozita((String) cmbPozita.getSelectedItem());
-            java.sql.Date dl = convertJavaDateToSqlDate(cmbDataLindjes.getDate());
-            f.setDataLindjes(dl);
-            java.sql.Date dp = convertJavaDateToSqlDate(cmbDataPunsimit.getDate());
-            f.setDataPunsimit(dp);
-            System.out.println(dp);
+          //  java.sql.Date dl = convertJavaDateToSqlDate(cmbDataLindjes.getDate());
+           // f.setDataLindjes(dl);
+           // java.sql.Date dp = convertJavaDateToSqlDate(cmbDataPunsimit.getDate());
+            //f.setDataPunsimit(dp);
+            //System.out.println(dp);
             f.setAdresa(txtAdresa.getText());
             f.setQyteti(txtQyteti.getText());
             f.setNumriTelefonit(txtNrTelefonit.getText());
