@@ -61,6 +61,8 @@ public class FormaStafi extends javax.swing.JFrame {
         txtMbiemriPerdoruesit = new javax.swing.JTextField();
         txtAdresa = new javax.swing.JTextField();
         cmbPozita = new javax.swing.JComboBox<>();
+        cmbDataLindjes = new org.jdesktop.swingx.JXDatePicker();
+        cmbDataPunsimit = new org.jdesktop.swingx.JXDatePicker();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,11 +176,17 @@ public class FormaStafi extends javax.swing.JFrame {
                                 .addComponent(btnReseto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(25, 25, 25))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addGap(269, 269, 269))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cmbDataPunsimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(223, 223, 223)))))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cmbDataLindjes, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -238,22 +246,24 @@ public class FormaStafi extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
-                    .addComponent(txtQyteti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
+                    .addComponent(txtQyteti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbDataLindjes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtMbiemriPerdoruesit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addGap(4, 4, 4)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txtNrTelefonit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(15, 15, 15))
+                            .addComponent(txtNrTelefonit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbDataPunsimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
-                        .addGap(8, 8, 8)))
+                        .addGap(9, 9, 9)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(cmbPozita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -274,7 +284,7 @@ public class FormaStafi extends javax.swing.JFrame {
                     .addComponent(btnFshij, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
@@ -297,11 +307,11 @@ public class FormaStafi extends javax.swing.JFrame {
             f.setEmriPerdoruesit(txtEmriPerdoruesit.getText());
             f.setMbiemriPerdoruesit(txtMbiemriPerdoruesit.getText());
             f.setPozita((String) cmbPozita.getSelectedItem());
-          //  java.sql.Date dl = convertJavaDateToSqlDate(cmbDataLindjes.getDate());
-           // f.setDataLindjes(dl);
-           // java.sql.Date dp = convertJavaDateToSqlDate(cmbDataPunsimit.getDate());
-            //f.setDataPunsimit(dp);
-            //System.out.println(dp);
+            java.sql.Date dl = convertJavaDateToSqlDate(cmbDataLindjes.getDate());
+            f.setDataLindjes(dl);
+            java.sql.Date dp = convertJavaDateToSqlDate(cmbDataPunsimit.getDate());
+            f.setDataPunsimit(dp);
+            System.out.println(dp);
             f.setAdresa(txtAdresa.getText());
             f.setQyteti(txtQyteti.getText());
             f.setNumriTelefonit(txtNrTelefonit.getText());
@@ -340,6 +350,8 @@ public class FormaStafi extends javax.swing.JFrame {
     private javax.swing.JButton btnFshij;
     private javax.swing.JButton btnReseto;
     private javax.swing.JButton btnShto;
+    private org.jdesktop.swingx.JXDatePicker cmbDataLindjes;
+    private org.jdesktop.swingx.JXDatePicker cmbDataPunsimit;
     private javax.swing.JComboBox<String> cmbPozita;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
