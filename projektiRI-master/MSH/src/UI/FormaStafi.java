@@ -156,6 +156,12 @@ public class FormaStafi extends javax.swing.JFrame {
             }
         });
 
+        cmbDataPunsimit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDataPunsimitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -341,6 +347,10 @@ public class FormaStafi extends javax.swing.JFrame {
            
         }
     }//GEN-LAST:event_txtFshijBazuarIDActionPerformed
+
+    private void cmbDataPunsimitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDataPunsimitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDataPunsimitActionPerformed
 
     /**
      * @param args the command line arguments

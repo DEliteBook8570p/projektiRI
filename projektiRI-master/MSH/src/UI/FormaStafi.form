@@ -423,6 +423,9 @@
     <Component class="org.jdesktop.swingx.JXDatePicker" name="cmbDataLindjes">
     </Component>
     <Component class="org.jdesktop.swingx.JXDatePicker" name="cmbDataPunsimit">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDataPunsimitActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

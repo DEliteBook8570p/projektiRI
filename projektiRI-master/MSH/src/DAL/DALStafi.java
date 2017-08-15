@@ -85,9 +85,9 @@ public class DALStafi {
     public static Stafi select(int stafiId) throws Exception{
         Connection conn = null;
         try{
-            conn = DBConnection.getConnection();
-            PreparedStatement ps = conn.prepareStatement("call select_stafi(?)");
-            ps.setInt(1, stafiId);
+            conn = DBConnection.getConnection();//lidhu me databaze
+            PreparedStatement ps = conn.prepareStatement("call select_stafi(?)");//thirre per selektim
+            ps.setInt(1, stafiId);//anetari i pare eshte id
             ResultSet result = ps.executeQuery();
             if(result.next()){
                 Stafi stafi = new Stafi();

@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package UI;
-
+import BL.BLStoqet;
+import BO.Stoqet;
 /**
  *
  * @author INFO PC
- */
+ */ 
 public class Stoku extends javax.swing.JFrame {
 
     /**
@@ -39,13 +40,14 @@ public class Stoku extends javax.swing.JFrame {
         txtArtikujtMbetur = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnShto = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtFshijNeBazeID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        txtStokuFiilim = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -106,7 +108,12 @@ public class Stoku extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setText("Shto");
+        btnShto.setText("Shto");
+        btnShto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShtoActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reseto");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +136,8 @@ public class Stoku extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("STOKU");
 
+        txtStokuFiilim.setText(" ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +148,7 @@ public class Stoku extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(225, 225, 225)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnShto, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 276, Short.MAX_VALUE)
@@ -151,12 +160,15 @@ public class Stoku extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtStokuFiilim, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtStokuFillestar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtArtikujtShitur, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,8 +186,10 @@ public class Stoku extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
-                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtStokuFiilim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtArtikujtMbetur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +208,7 @@ public class Stoku extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnShto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(7, 7, 7)
@@ -209,12 +223,12 @@ public class Stoku extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       // txtStoqetID.setText("");
-       txtArtikujtMbetur.setText("");
-       txtArtikujtShitur.setText("");
-      // txtBrendiID.setText("");
-       txtStokuFillestar.setText("");
-       txtFshijNeBazeID.setText("");
-       
+//       txtArtikujtMbetur.setText("");
+//       txtArtikujtShitur.setText("");
+//      // txtBrendiID.setText("");
+//       txtStokuFillestar.setText("");
+//       txtFshijNeBazeID.setText("");
+//       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtArtikujtShiturKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtArtikujtShiturKeyTyped
@@ -230,9 +244,9 @@ public class Stoku extends javax.swing.JFrame {
     }//GEN-LAST:event_txtArtikujtMbeturKeyTyped
 
     private void txtStokuFillestarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStokuFillestarKeyTyped
-        char c=evt.getKeyChar();
-       if(!Character.isDigit(c))
-           evt.consume();
+//        char c=evt.getKeyChar();
+//       if(!Character.isDigit(c))
+//           evt.consume();
     }//GEN-LAST:event_txtStokuFillestarKeyTyped
 
     private void txtFshijNeBazeIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFshijNeBazeIDKeyTyped
@@ -240,6 +254,12 @@ public class Stoku extends javax.swing.JFrame {
        if(!Character.isDigit(c))
            evt.consume();
     }//GEN-LAST:event_txtFshijNeBazeIDKeyTyped
+
+    private void btnShtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShtoActionPerformed
+      
+       
+    }//GEN-LAST:event_btnShtoActionPerformed
+    
 
     /**
      * @param args the command line arguments
@@ -277,7 +297,7 @@ public class Stoku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnShto;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -295,6 +315,7 @@ public class Stoku extends javax.swing.JFrame {
     private javax.swing.JTextField txtArtikujtMbetur;
     private javax.swing.JTextField txtArtikujtShitur;
     private javax.swing.JTextField txtFshijNeBazeID;
+    private javax.swing.JTextField txtStokuFiilim;
     private javax.swing.JTextField txtStokuFillestar;
     // End of variables declaration//GEN-END:variables
 }

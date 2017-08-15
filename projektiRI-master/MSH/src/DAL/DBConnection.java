@@ -2,9 +2,9 @@ package DAL;
 import java.sql.*;
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/mydb";
-    private static final String User = "root";
-    private static final String Password = "";
+    private static final String URL = "jdbc:mysql://10.31.16.107:3306/mydb";
+    private static final String User = "admin";
+    private static final String Password = "admin";
 
     public static Connection getConnection() throws SQLException {
         try {
